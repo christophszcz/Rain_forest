@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-  	@products = Product.new
+  	@product = Product.new
   end
 
   def edit
@@ -34,14 +34,15 @@ class ProductsController < ApplicationController
 			render :edit
 		end
 
-	def destroy
-		@product = Product.find(params[:id])
-		@product.destroy
-		redirect_to products_path
-	end
+		def destroy
+			@product = Product.find(params[:id])
+			@product.destroy
+			redirect_to products_path
+		end
 
-	private
-	def product_params
-		params.require(:product).permit(:name,:description, :price_in_cents)
-	end
-end	
+		private
+		def product_params
+			params.require(:product).permit(:name,:description, :price_in_cents)
+		end
+	end	
+end
