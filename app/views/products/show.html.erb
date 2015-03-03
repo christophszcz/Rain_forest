@@ -1,2 +1,13 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1><%= @product.name %></h1>
+
+<p>
+  <b>Price: $</b> 
+  <%= @product.formatted_price %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+</br>
+
+<%= link_to("Edit This Product", edit_product_path) %>
