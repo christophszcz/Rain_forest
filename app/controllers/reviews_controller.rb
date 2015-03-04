@@ -9,8 +9,6 @@ class ReviewsController < ApplicationController
   def create
   	@review = @product.reviews.build(review_params)
 		@review.user = current_user  
-  end
-
 	  if @review.save
 	  	redirect_to products_path, notice: 'Review created successfully'
 	  else
@@ -31,4 +29,4 @@ class ReviewsController < ApplicationController
  	def load_product
  		@product = Product.find(params[:product_id])
  	end
- 
+end
